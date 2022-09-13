@@ -124,7 +124,9 @@ run_command("pip", "uninstall", "MinkowskiEngine", "-y")
 
 # For cpu only build
 CPU_ONLY, argv = _argparse("--cpu_only", argv)
-FORCE_CUDA, argv = _argparse("--force_cuda", argv)
+# FORCE_CUDA, argv = _argparse("--force_cuda", argv)
+FORCE_CUDA = True
+
 if not torch.cuda.is_available() and not FORCE_CUDA:
     warnings.warn(
         "torch.cuda.is_available() is False. MinkowskiEngine will compile with CPU_ONLY. Please use `--force_cuda` to compile with CUDA."
@@ -136,8 +138,10 @@ if FORCE_CUDA:
 
 # args with return value
 CUDA_HOME, argv = _argparse("--cuda_home", argv, False)
-BLAS, argv = _argparse("--blas", argv, False)
-BLAS_INCLUDE_DIRS, argv = _argparse("--blas_include_dirs", argv, False, is_list=True)
+# BLAS, argv = _argparse("--blas", argv, False)
+BLAS = "openblas"
+# BLAS_INCLUDE_DIRS, argv = _argparse("--blas_include_dirs", argv, False, is_list=True)
+BLAS_INCLUDE_DIRS = ["/opt/ohpc/pub/modulefiles/openblas/", "/opt/lib/usr/lib64"]
 BLAS_LIBRARY_DIRS, argv = _argparse("--blas_library_dirs", argv, False, is_list=True)
 MAX_COMPILATION_THREADS = 12
 
