@@ -141,7 +141,7 @@ CUDA_HOME, argv = _argparse("--cuda_home", argv, False)
 # BLAS, argv = _argparse("--blas", argv, False)
 BLAS = "openblas"
 # BLAS_INCLUDE_DIRS, argv = _argparse("--blas_include_dirs", argv, False, is_list=True)
-BLAS_INCLUDE_DIRS = ["/opt/ohpc/pub/modulefiles/openblas/", "/opt/lib/usr/lib64"]
+BLAS_INCLUDE_DIRS = ["/opt/lib/usr/include/openblas/", "/opt/lib/usr/lib64"]
 BLAS_LIBRARY_DIRS, argv = _argparse("--blas_library_dirs", argv, False, is_list=True)
 MAX_COMPILATION_THREADS = 12
 
